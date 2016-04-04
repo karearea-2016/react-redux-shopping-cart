@@ -7,14 +7,20 @@ class ProductDetail extends Component {
     const {id} = this.props.params
     const product = this.props.products.filter(p => p.get('id') == id ).first()
     const name = product.get('name')
+    const price = product.get('price')
     const addToCart = (e) => {
       e.preventDefault()
       this.props.addToCart(id)
     }
+    const deleteFromCart = (e) => {
+      e.preventDefault()
+      this.props.deleteFromCart(id)
+    }
     return (
       <div className='product' id={id}>
-        <div> Detailed view of a product {name}</div>
+        <div> Detailed view of a product {name} {price}</div>
         <div><a href='' onClick={addToCart}>Add to Cart</a></div>
+        <div><a href='' onclick={deleteFromCart}>Delete Product from Cart</a></div>
         <div><Link to='/'>View all</Link></div>
       </div>
     )
@@ -29,7 +35,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addToCart: (id) => { 
+    addToCart: (id) => {
       dispatch({
         type: 'ADD_PRODUCT_TO_CART',
         id: parseInt(id)
@@ -37,9 +43,20 @@ function mapDispatchToProps(dispatch) {
     }
   }
 }
+function mapDispatchFromProps(dispatch){
+  return {
+    deleteFromCart: (id) => {
+      dispatch({
+         type: 'DELETE_PRODUCT_FROM_CART',
+         id: parseInt(id)
+      }
+    }
+  }
+}
 
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  mapDispatchFromProps
 )(ProductDetail)

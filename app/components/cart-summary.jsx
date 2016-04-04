@@ -22,7 +22,8 @@ class CartSummary extends Component {
 function mapStateToProps(state) {
   return {
     products: state.get('products'),
-    cart: state.get('cart')
+    cart: state.get('cart'),
+    price: state.get('price')
   };
 }
 
