@@ -28,10 +28,14 @@ describe('Reducer', () => {
         type: 'ADD_PRODUCT_TO_CART',
         id: 1
       })
-      console.log(state.get('cart'))
-
       expect(state.get('cart').last()).to.equal(1)
-      console.log(state.get('cart'))
+    })
+    it('removes a product from the cart', () =>{
+      const state = reducer(undefined, {
+        type: 'REMOVE_FROM_CART',
+        id: 4
+      })
+      expect(state.get('cart').last()).to.equal(1)
     })
   })
 })
