@@ -10,10 +10,9 @@ class CartSummary extends Component {
       <div id='cart'>
         <h4>Shopping Cart</h4>
         <div className='products'>
-          {products.map((product, idx, val) => {
+          {products.map((product, idx) => {
             return
             <div key={idx}>{product.get('name')}</div>
-            <div key={val}>{product.get('value')}</div>
           })}
         </div>
       </div>
