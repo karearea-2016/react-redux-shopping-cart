@@ -15,8 +15,8 @@ export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case 'ADD_PRODUCT_TO_CART':
       return state.set('cart', state.get('cart').push(action.id))
-    // case 'DELETE_PRODUCT_FROM_CART':
-    //   return state.set('cart', state.get('cart').pop(action.id))
+    case 'DELETE_PRODUCT_FROM_CART':
+    return state.set('cart', state.get('cart').delete(action.id))
     default:
       return state
   }
