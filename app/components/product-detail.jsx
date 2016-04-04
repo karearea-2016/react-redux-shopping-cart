@@ -15,6 +15,8 @@ class ProductDetail extends Component {
       <div className='product' id={id}>
         <div> Detailed view of a product {name}</div>
         <div><a href='' onClick={addToCart}>Add to Cart</a></div>
+        <button onClick={incrementCounter}> + </button>
+        <button onClick={decrementCounter}> - </button>
         <div><Link to='/'>View all</Link></div>
       </div>
     )
@@ -29,7 +31,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addToCart: (id) => { 
+    addToCart: (id) => {
       dispatch({
         type: 'ADD_PRODUCT_TO_CART',
         id: parseInt(id)
@@ -38,8 +40,15 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
+var store = createStore(counter)
+store.subscribe(() =>
+  store.getState()
+)
+store.dispatch({type: 'INCREMENT'})
+store.dispatch({type: 'DECREMENT'})
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  counter
 )(ProductDetail)
