@@ -23,16 +23,14 @@ describe('Reducer', () => {
       expect(state.get('cart')).to.include(3)
     })
   })
-})
-
-describe('cart', () => {
-    it('adds a product to the shopping cart', () => {
+  describe('cart', () => {
+    it('Reomove a product from the shopping cart', () => {
       const state = reducer(undefined, {
         type: 'REMOVE_PRODUCT_FROM_CART',
-        id: 3
+        id: 1
       })
-      expect(state.get('cart').size).to.equal(3)
-      expect(state.get('cart')).to.include(2)
+      expect(state.get('cart').size).to.equal(1)
+      expect(state.get('cart').first()).to.equal(5)
     })
   })
 })

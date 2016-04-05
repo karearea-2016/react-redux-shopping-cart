@@ -8,7 +8,7 @@ const INITIAL_STATE = fromJS({
     {id: 4, name:'Dugati', price:5000,qty:0,  year:'2011'},
     {id: 5, name:'falcon', price:50000, qty:0, year:'2000'}
   ],
-  cart: [1,5,2]
+  cart: [1,5]
 })
 
 export default (state = INITIAL_STATE, action) => {

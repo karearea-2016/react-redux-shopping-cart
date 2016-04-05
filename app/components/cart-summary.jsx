@@ -7,7 +7,7 @@ class CartSummary extends Component {
       return this.props.cart.includes(p.get('id'))
     })
 
-    
+
     return (
       <div id='cart'>
         <h4>Shopping Cart</h4>
@@ -19,10 +19,10 @@ class CartSummary extends Component {
               }
               return <div key={idx}>
             {/*} itemCount(this.props.cart, product.get('id')}*/}
-                        {product.get('name')}
-                        
+                        {product.get('name')} &nbsp;
+
                         {/*<button id="Add">+</button>*/}
-                        <button id="Remove" onClick={removeProduct}>-</button>
+                        <button id="Remove" onClick={removeProduct}>Remove</button>
                     </div>
               })}
         </div>

@@ -15,10 +15,10 @@ class ProductDetail extends Component {
     }
     return (
       <div className='product' id={id}>
-        <div> Detailed view of a product {name}</div>
+        <div> Detailed view of a product {name}<p></p></div>
         <div> The cost of this model is {price}</div>
         <div> Model {year}</div>
-        <div>
+        <div><p></p>
         <button class="Add"  onClick={addToCart}>ADD to cart</button></div>
        {/*<a href='' onClick={addToCart}>Add to Cart</a></div>*/}
         <div><Link to='/'>View all</Link></div>
