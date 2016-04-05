@@ -12,10 +12,6 @@ class ProductDetail extends Component {
       e.preventDefault()
       this.props.addToCart(id)
     }
-    const deleteFromCart = (e) => {
-      e.preventDefault()
-      this.props.delete(id)
-    }
     return (
       <div className='product' id={id}>
         <div> Detailed view of a product {name} {price}</div>
@@ -33,7 +29,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {//return state.delete(action.id)
+function mapDispatchToProps(dispatch) {
   return {
     addToCart: (id) => {
       dispatch({ // redux dispatch function initiates a action
@@ -43,16 +39,16 @@ function mapDispatchToProps(dispatch) {//return state.delete(action.id)
     }
   }
 }
-function mapDispatchFromProps(dispatch){ {/*return state.delete(action.id)*/}
-  return {
-    deleteFromCart: (id) => {
-      dispatch({
-         type: 'DELETE_PRODUCT_FROM_CART',
-         id: parseInt(id)
-      })
-    }
-  }
-}
+// function mapDispatchFromProps(dispatch){ {/*return state.delete(action.id)*/}
+//   return {
+//     deleteFromCart: (id) => {
+//       dispatch({
+//          type: 'DELETE_PRODUCT_FROM_CART',
+//          id: parseInt(id)
+//       })
+//     }
+//   }
+// }
 
 
 export default connect(

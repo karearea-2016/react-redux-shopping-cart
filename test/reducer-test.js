@@ -32,13 +32,13 @@ describe('Reducer', () => {
       expect(state.get('cart').size).to.equal(2)
       })
   })
-  // describe('cart', () => {
-  //   it('adds prices to products', () => {
-  //     const state = reducer(undefined, {
-  //       type: 'ADD_PRICES_TO_PRODUCTS',
-  //       text: '0.99'
-  //     })
-  //     expect(state.get('cart')).to.include(0.99)
-  //   })
-  // })
+  describe('cart multiple items', () => {
+    it('adds multiple items to cart', () => {
+      const state = reducer(undefined, {
+        type: 'ADD_MULTIPLE_ITEMS_TO_PRODUCTS',
+        id: 4
+      })
+      expect(state.get('cart').size).to.equal(3)
+    })
+  })
 })
