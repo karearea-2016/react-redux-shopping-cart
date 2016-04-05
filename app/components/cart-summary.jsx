@@ -5,7 +5,6 @@ class CartSummary extends Component {
   render() {
     const products = this.props.products.filter(p => {
       return this.props.cart.includes(p.get('id'))
-
     })
 
     return (
@@ -13,12 +12,12 @@ class CartSummary extends Component {
         <h4>Shopping Cart</h4>
         <div className='products'>
           {products.map((product, idx) => {
-            return <div key={idx}>{product.get('name') + ' x' + countQuantity(this.props.cart, product.get('id'))}</div>
+            return <div key={idx}>{product.get('name') + ' x' + countQuantity(this.props.cart, product.get('id')) + ' $' + product.get('price')}</div>
           })}
         </div>
+        <h4>Total</h4>
       </div>
     )
-
   }
 }
 
@@ -38,7 +37,6 @@ function countQuantity(cart, id){
    }
    return count
 }
-
 
 
 
