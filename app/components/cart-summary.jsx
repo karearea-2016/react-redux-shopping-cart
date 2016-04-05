@@ -17,7 +17,12 @@ class CartSummary extends Component {
             return <div key={idx}>{product.get('name') + ' x' + quantity + ' $' + product.get('price')*quantity}</div>
           })}
         </div>
-        <h4>Total</h4>
+        <div className='total'>
+          <h4>Total</h4>
+          {'$' + this.props.products.reduce((sum, product) => {
+            return sum + product.get('price') * countQuantity(this.props.cart, product.get('id'))
+          }, 0)}
+        </div>
 
       </div>
     )
@@ -32,19 +37,11 @@ function mapStateToProps(state) {
 }
 
 function countQuantity(cart, id){
-   var count = 0;
-   for (var i = 0; i < cart.size; i++){
-    if (cart.get(i) == id) {
-      count++
-    }
-   }
-   return count
-}
+  return cart.filter(function(productId){
+    return productId === id
+  }).size
 
-function getTotal(){
-  return 100
 }
-
 
 export default connect(
   mapStateToProps
