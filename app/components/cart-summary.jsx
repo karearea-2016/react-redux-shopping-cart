@@ -12,10 +12,13 @@ class CartSummary extends Component {
         <h4>Shopping Cart</h4>
         <div className='products'>
           {products.map((product, idx) => {
-            return <div key={idx}>{product.get('name') + ' x' + countQuantity(this.props.cart, product.get('id')) + ' $' + product.get('price')}</div>
+            var quantity = countQuantity(this.props.cart, product.get('id'))
+
+            return <div key={idx}>{product.get('name') + ' x' + quantity + ' $' + product.get('price')*quantity}</div>
           })}
         </div>
         <h4>Total</h4>
+
       </div>
     )
   }
@@ -38,6 +41,9 @@ function countQuantity(cart, id){
    return count
 }
 
+function getTotal(){
+  return 100
+}
 
 
 export default connect(
